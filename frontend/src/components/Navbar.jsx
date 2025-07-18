@@ -45,8 +45,8 @@ const Navbar = () => {
           <Link to="/" className="hover:underline">Home</Link>
           <Link to="/booking" className="hover:underline">Book</Link>
           <Link to="/dashboard" className="hover:underline">Dashboard</Link>
-          <Link to="/admin" className="hover:underline">Admin</Link>
-          <Link to="/businessDashboard" className="hover:underline">Bussiness Dash</Link>
+{/*           <Link to="/admin" className="hover:underline">Admin</Link> */}
+{/*           <Link to="/businessDashboard" className="hover:underline">Bussiness Dash</Link> */}
         </div>
 
         {/* Right Buttons (Desktop) */}
@@ -77,7 +77,7 @@ const Navbar = () => {
           <Link to="/" onClick={() => setMenuOpen(false)} className="block">Home</Link>
           <Link to="/booking" onClick={() => setMenuOpen(false)} className="block">Book</Link>
           <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="block">Dashboard</Link>
-          <Link to="/admin" onClick={() => setMenuOpen(false)} className="block">Admin</Link>
+{/*           <Link to="/admin" onClick={() => setMenuOpen(false)} className="block">Admin</Link> */}
           <hr className="border-white opacity-30 my-2" />
           {user ? (
             <>
