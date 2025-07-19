@@ -5,36 +5,36 @@ const BookingForm = ({ formData, setFormData }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
-    <form className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <form className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 bg-sky-100 shadow-lg rounded-lg border border-gray-200">
       <input
         name="name"
         placeholder="Full Name"
-        className="border p-2 rounded"
+        className="p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
         required
         value={formData.name || ''}
         onChange={handleChange}
       />
       <input
         name="email"
-        placeholder="Email"
         type="email"
-        className="border p-2 rounded"
+        placeholder="Email"
+        className="p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
         required
         value={formData.email || ''}
         onChange={handleChange}
       />
       <input
         name="phone"
-        placeholder="Phone Number"
         type="tel"
-        className="border p-2 rounded"
+        placeholder="Phone Number"
+        className="p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
         required
         value={formData.phone || ''}
         onChange={handleChange}
       />
       <select
         name="gender"
-        className="border p-2 rounded"
+        className="p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
         required
         value={formData.gender || ''}
         onChange={handleChange}
@@ -47,7 +47,7 @@ const BookingForm = ({ formData, setFormData }) => {
       <input
         name="address"
         placeholder="Address"
-        className="border p-2 rounded col-span-2"
+        className="p-3 rounded-md border border-gray-300 col-span-1 sm:col-span-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         required
         value={formData.address || ''}
         onChange={handleChange}
@@ -55,7 +55,7 @@ const BookingForm = ({ formData, setFormData }) => {
       <textarea
         name="message"
         placeholder="Notes (optional)"
-        className="border p-2 rounded col-span-2"
+        className="p-3 rounded-md border border-gray-300 col-span-1 sm:col-span-2 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none min-h-[100px]"
         value={formData.message || ''}
         onChange={handleChange}
       />
