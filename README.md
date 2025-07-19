@@ -160,10 +160,10 @@ npm start
 ### 2. Admin Panel
 ![Admin Dashboard](https://github.com/DhirajWanjari/booking-system-react-tailwind/blob/9593f62843edba323203f1f8abf5b5bd85824592/screenshoots/Admin%20Dashboard.jpg)
 
-### 3. Business Dashboard
-![Business Dashboard](./screenshots/business-dashboard.png)
+### 3. Customer & Business Dashboard
+![Business Dashboard](https://github.com/DhirajWanjari/booking-system-react-tailwind/blob/39c5a7fd1b6976c1d747aef6d71a3913b834c90b/screenshoots/Dashboard.jpg)
 
-### 4. Customer Dashboard
+### 4.  Dashboard
 ![Customer Dashboard](./screenshots/customer-dashboard.png)
 
 ---
