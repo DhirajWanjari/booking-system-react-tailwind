@@ -19,7 +19,8 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen p-8 max-w-6xl mx-auto">
+    <div className="bg-gradient-to-br from-blue-800 via-indigo-900">
+    <div className="min-h-screen p-8 max-w-4xl mx-auto ">
       <h2 className="text-2xl font-bold mb-6 text-center">Admin Dashboard</h2>
       <div className="flex justify-center space-x-4 mb-6">
         <button onClick={() => setActiveTab('services')} className={`px-4 py-2 rounded ${activeTab === 'services' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}>Services</button>
@@ -31,6 +32,7 @@ const AdminDashboard = () => {
       <div className="bg-white p-6 shadow rounded">
         {renderTab()}
       </div>
+    </div>
     </div>
   );
 };
