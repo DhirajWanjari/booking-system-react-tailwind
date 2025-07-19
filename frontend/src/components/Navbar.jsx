@@ -20,13 +20,20 @@ const Navbar = () => {
     navigate('/login');
   };
 
-  return (
-    <nav className="bg-blue-600 text-white p-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Title */}
-        <h1 className="text-xl font-bold">Booking System</h1>
+  const getDashboardLink = () => {
+    if (!user) return null;
+    if (user.role === 'admin') return '/admin';
+    if (user.role === 'business') return '/businessdashboard';
+    return '/dashboard'; // customer or default
+  };
 
-        {/* Burger Icon (Mobile) */}
+  return (
+    <nav className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-md">
+      <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
+        {/* Title */}
+        <h1 className="text-2xl font-extrabold tracking-wide">Booking System</h1>
+
+        {/* Burger Icon for Mobile */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -40,30 +47,37 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Center Links (Desktop) */}
-        <div className="hidden md:flex space-x-6">
-          <Link to="/" className="hover:underline">Home</Link>
-          <Link to="/booking" className="hover:underline">Book</Link>
-          <Link to="/dashboard" className="hover:underline">Dashboard</Link>
-{/*           <Link to="/admin" className="hover:underline">Admin</Link> */}
-{/*           <Link to="/businessDashboard" className="hover:underline">Bussiness Dash</Link> */}
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center space-x-8">
+          <Link to="/" className="hover:text-yellow-300 transition duration-300">Home</Link>
+          <Link to="/booking" className="hover:text-yellow-300 transition duration-300">Book</Link>
+          <Link to={getDashboardLink()} className="hover:text-yellow-300 transition duration-300">Dashboard</Link>
         </div>
 
-        {/* Right Buttons (Desktop) */}
-        <div className="hidden md:flex items-center space-x-3">
+        {/* Auth Buttons */}
+        <div className="hidden md:flex items-center space-x-4">
           {user ? (
             <>
-              <span className="text-sm">Hi, {user.name || 'User'}</span>
-              <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded hover:bg-red-600">
+              <span className="text-sm font-medium">Hi, {user.name || 'User'}</span>
+              <button
+                onClick={handleLogout}
+                className="bg-red-500 px-3 py-1 rounded hover:bg-red-600 transition duration-300"
+              >
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="bg-white text-blue-600 px-3 py-1 rounded hover:bg-gray-100">
+              <Link
+                to="/login"
+                className="bg-white text-blue-700 px-3 py-1 rounded hover:bg-gray-100 transition duration-300"
+              >
                 Login
               </Link>
-              <Link to="/signup" className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+              <Link
+                to="/signup"
+                className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition duration-300"
+              >
                 Sign Up
               </Link>
             </>
@@ -71,27 +85,39 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Nav */}
       {menuOpen && (
-        <div className="md:hidden mt-4 space-y-2 text-center">
-          <Link to="/" onClick={() => setMenuOpen(false)} className="block">Home</Link>
-          <Link to="/booking" onClick={() => setMenuOpen(false)} className="block">Book</Link>
-          <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="block">Dashboard</Link>
-{/*           <Link to="/admin" onClick={() => setMenuOpen(false)} className="block">Admin</Link> */}
+        <div className="md:hidden px-4 pb-4 space-y-2 text-center bg-blue-700">
+          <Link to="/" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-yellow-200">Home</Link>
+          <Link to="/booking" onClick={() => setMenuOpen(false)} className="block py-1 hover:text-yellow-200">Book</Link>
+          <Link to={getDashboardLink()} onClick={() => setMenuOpen(false)} className="block py-1 hover:text-yellow-200">Dashboard</Link>
+
           <hr className="border-white opacity-30 my-2" />
+
           {user ? (
             <>
-              <span className="block text-sm text-white">Hi, {user.name || 'User'}</span>
-              <button onClick={handleLogout} className="block w-full text-sm bg-red-500 text-white px-4 py-1 rounded mx-auto max-w-xs">
+              <span className="block text-sm font-medium">Hi, {user.name || 'User'}</span>
+              <button
+                onClick={handleLogout}
+                className="block w-full bg-red-500 text-white px-4 py-1 rounded mx-auto max-w-xs hover:bg-red-600"
+              >
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" onClick={() => setMenuOpen(false)} className="block text-sm bg-white text-blue-600 px-4 py-1 rounded mx-4">
+              <Link
+                to="/login"
+                onClick={() => setMenuOpen(false)}
+                className="block bg-white text-blue-700 px-4 py-1 rounded hover:bg-gray-200 mx-4"
+              >
                 Login
               </Link>
-              <Link to="/signup" onClick={() => setMenuOpen(false)} className="block text-sm bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+              <Link
+                to="/signup"
+                onClick={() => setMenuOpen(false)}
+                className="block bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600 mx-4"
+              >
                 Sign Up
               </Link>
             </>
