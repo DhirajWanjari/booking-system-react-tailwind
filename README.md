@@ -154,8 +154,8 @@ npm start
 
 ## 🖼️ Screenshots
 
-### 1. Booking Flow
-![Booking Flow](./screenshots/booking-step.png)
+### 1. Landing Page
+![Landing Page]([./screenshots/booking-step.png](https://github.com/DhirajWanjari/booking-system-react-tailwind/blob/93be727144252c00244afc642c63acea8e6f6bd6/Landing%20Page.jpg))
 
 ### 2. Admin Panel
 ![Admin Dashboard](./screenshots/admin-dashboard.png)
